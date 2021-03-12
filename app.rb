@@ -1,5 +1,9 @@
 require "sinatra"
+require "sinatra/reloader"
 
 get "/" do
-  "hello world"
+  @title = "BBS APP"
+  erb :index
 end
+
+
