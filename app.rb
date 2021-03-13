@@ -8,12 +8,18 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Comment < ActiveRecord::Base
+  validates :body, presence: true
 end
 
 get "/" do
   @title = "BBS APP"
   @comments = Comment.all
   erb :index
+end
+
+post "/create" do
+  Comment.create(body: params[:body])
+  redirect to("/")
 end
 
 
