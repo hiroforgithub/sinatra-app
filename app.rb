@@ -22,4 +22,8 @@ post "/create" do
   redirect to("/")
 end
 
+post "/destroy" do
+  Comment.find(params[:id]).destroy
+end
+
 
